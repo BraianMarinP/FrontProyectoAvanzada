@@ -34,7 +34,12 @@ export class TokenService {
   public login(token: string) {
     this.setToken(token);
     this.sesionService.updateSession(true);
-    this.router.navigate(["/"]);
+    if (this.getRole().includes('CLIENTE')) {
+      this.router.navigate(["/"]);
+    }else{
+      this.router.navigate(["/cambiarestado"]);
+
+    }
   }
 
   public getEmail(): string {
