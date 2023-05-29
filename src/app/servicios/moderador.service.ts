@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ModeradorService {
-  private modURL = "http://localhost:8080/api/moderadores";
+  private modURL = "http://backproyectoavanzada-production-ebab.up.railway.app/api/moderadores";
   constructor(private http: HttpClient) { }
   
   public obtenerModerador(cedula: string): Observable<MensajeDTO> {

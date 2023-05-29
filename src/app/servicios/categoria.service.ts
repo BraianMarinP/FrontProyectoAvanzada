@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CategoriaService {
     
-    private catURL = "http://localhost:8080/api/categorias";
+    private catURL = "http://backproyectoavanzada-production-ebab.up.railway.app/api/categorias";
 
     constructor(private http: HttpClient) { }
 

@@ -9,7 +9,7 @@ import { TokenService } from './token.service';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private userUrl = "http://localhost:8080/api/usuarios";
+  private userUrl = "http://backproyectoavanzada-production-ebab.up.railway.app/api/usuarios";
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 
   public obtener(cedula: string): Observable<MensajeDTO> {

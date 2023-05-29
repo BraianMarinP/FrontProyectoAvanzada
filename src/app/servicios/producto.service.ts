@@ -12,8 +12,8 @@ import { ComentarioDTO } from '../modelo/comentario-dto';
   providedIn: 'root'
 })
 export class ProductoService {
-  private catURL = "http://localhost:8080/api/usuarios";
-  private caURL = "http://localhost:8080/api/moderadores";
+  private catURL = "http://backproyectoavanzada-production-ebab.up.railway.app/api/usuarios";
+  private caURL = "http://backproyectoavanzada-production-ebab.up.railway.app/api/moderadores";
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 
