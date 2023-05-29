@@ -1,0 +1,79 @@
+<div class="container">
+  <form #f="ngForm">
+
+
+
+    <h1>Productos en mi carrito</h1>
+    <div class="col" *ngIf="carrito">
+
+      <div class="col" *ngFor="let item of carrito.publicacionesProductosDTO">
+        <div class="card shadow-sm">
+          <div class="row">
+            <div class="col-md-6 img-horizontal">
+              <img src="{{item.idImagenes[0]}}" alt="Imagen" style="max-width: 450px; max-height: 450px;">
+            </div>
+            <div class="col-md-6">
+              <div class="card-body">
+
+                <div class="col-sm-6">
+                  <h4>{{item.titulo}}</h4>
+                  <p>Descripcion: {{item.producto.descripcion}}</p>
+                  <p>Precio: $ {{item.precio}}</p>
+                </div>
+
+                <span class="badge text-bg-primary me-2" *ngFor="let cat of
+                      item.producto.categorias">{{cat.nombre}}
+                </span>
+                <div><br>Unidades:</div>
+                <div class="col-sm-10">
+
+                  <input type="number" class="form-control" [ngModel]="unidadesMap.get(item.idPublicacion)"
+                  (ngModelChange)="actualizarValorTotal(item.idPublicacion, $event)"
+                    name="item.titulo{{item.idPublicacion}}" required min="1">
+
+                    <!-- <input type="number" class="form-control" [ngModel]="unidadesMap.get(item.idPublicacion)"
+                    (ngModelChange)="unidadesMap.set(item.idPublicacion, $event)"
+                    name="item.titulo{{item.idPublicacion}}" required min="1"> -->
+
+
+                    
+
+                </div>
+                <div><br></div>
+
+                <button class="btn btn-danger" (click)="eliminarDeCarrito(item.idPublicacion)">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-4">
+      <h3>Total de la compra: <span id="total-compra">$ {{valorTotal}}</span></h3>
+    </div>
+    <div class="mt-4">
+
+      <h3>Opciones de pago:</h3>
+      
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="opcion-pago" id="pago-efectivo" value="PAYPAL"
+          [(ngModel)]="compraDTO.medioPago" checked>
+        <label class="form-check-label" for="pago-efectivo">
+          PAYPAL
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="opcion-pago" id="pago-tarjeta" value="TARJETACREDITO"
+          [(ngModel)]="compraDTO.medioPago">
+        <label class="form-check-label" for="pago-tarjeta">
+          TARJETA DE CREDITO
+        </label>
+      </div>
+
+    </div>
+
+    <button class="btn btn-success" (click)="crearCompra()">Comprar</button>
+  </form>

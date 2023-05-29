@@ -1,0 +1,67 @@
+<div class="container">
+
+  <div class="container">
+    <h1>Mis favoritos</h1>
+    <div class="col" *ngFor="let item of publicacionProductosDTO">
+      <div class="card shadow-sm">
+          <div class="row">
+              <div class="col-md-6 img-vertical">
+                  <img class="rounded-start" src="{{item.idImagenes[0]}}" />
+              </div>
+              <div class="col-md-6">
+                  <div class="card-body">
+                       <p class="card-text">{{item.titulo}}</p>
+                      <p class="card-text">{{item.producto.descripcion}}</p>
+                      <p class="card-text">$ {{item.precio}}</p>
+                      <span class="badge text-bg-primary me-2" *ngFor="let cat of
+                      item.producto.categorias">{{cat.nombre}}</span> 
+                      <hr />
+                      <div class="d-flex justify-content-between align-items-center mt-3">
+                          <div class="btn-group">
+                            <button class="btn btn-primary" (click)="irDetallePublicacion(item.idPublicacion)">Ver detalle</button>
+                            <button class="btn btn-danger" (click)="eliminarPublicacionFavoritos(item.idPublicacion)">Eliminar de favoritos</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+<!-- 
+
+
+
+    <h1>Mis favoritos</h1>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="ruta_imagen_producto1.jpg" alt="Producto 1" class="img-thumbnail">
+          </div>
+          <div class="col-sm-6">
+            <h4>Producto x</h4>
+            <p>Descripción del producto x.</p>
+            <p>Precio: $0:0</p>
+          </div>
+          <div class="col-sm-3">
+            <button type="button" class="btn btn-danger">Eliminar</button>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="ruta_imagen_producto2.jpg" alt="Producto 2" class="img-thumbnail">
+          </div>
+          <div class="col-sm-6">
+            <h4>Producto x1</h4>
+            <p>Descripción del producto x1.</p>
+            <p>Precio: $0.0</p>
+          </div>
+          <div class="col-sm-3">
+            <button type="button" class="btn btn-danger">Eliminar</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+ -->

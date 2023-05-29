@@ -1,0 +1,75 @@
+<div class="card p-5">
+    <form #f="ngForm">
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Titulo: </label>
+            <div class="col-sm-10">
+                <input #titulo="ngModel" class="form-control" [ngClass]="titulo.invalid &&
+                        (titulo.dirty || titulo.touched) ? 'is-invalid' : ''" type="text" name="titulo"
+                    [(ngModel)]="publicacionProducto.titulo" required maxlength="50" />
+
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Nombre: </label>
+            <div class="col-sm-10">
+                <input #nombre="ngModel" class="form-control" [ngClass]="nombre.invalid &&
+                        
+                        (nombre.dirty || nombre.touched) ? 'is-invalid' : ''" type="text" name="nombre"
+                    [(ngModel)]="producto.nombre" required maxlength="50" />
+
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Descripcion: </label>
+            <div class="col-sm-10">
+                <input #descripcion="ngModel" class="form-control" [ngClass]="descripcion.invalid &&
+                        (descripcion.dirty || descripcion.touched) ? 'is-invalid' : ''" type="text" name="descripcion"
+                    [(ngModel)]="producto.descripcion" />
+
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Precio: </label>
+            <div class="col-sm-10">
+                <input #precio="ngModel" class="form-control" [ngClass]="precio.invalid &&
+                        (precio.dirty || precio.touched) ? 'is-invalid' : ''" type="number" name="precio"
+                    [(ngModel)]="publicacionProducto.precio" required min="0" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Cantidad: </label>
+            <div class="col-sm-10">
+                <input #cantidad="ngModel" class="form-control" [ngClass]="cantidad.invalid &&
+                        (cantidad.dirty || cantidad.touched) ? 'is-invalid' : ''" type="number" name="cantidad"
+                    [(ngModel)]="publicacionProducto.cantidad" required min="0" pattern="^\d+$" />
+
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Imagen: </label>
+            <div class="col-sm-7">
+                <input type="file" class="form-control" name="imagenes" (change)="onFileChange($event)" multiple />
+            </div>
+            <div class="col-sm-3">
+                <button type="button" [disabled]="archivos == null" class="btn btn-primary" (click)="subirImagenes()">
+                    <i class="fa-solid fa-cloud-arrow-up me-2"></i>Subir imágenes
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Categorías del producto: </label>
+            <div *ngFor="let item of categorias; index as i" style="margin-left: 20px;">
+                <input class="form-check-input me-1" type="checkbox" [value]="item" (change)="onCategoriaChange($event, item)">
+                <span>{{item}}</span>
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="crearProducto()">Guardar</button>
+    </form>
+</div>

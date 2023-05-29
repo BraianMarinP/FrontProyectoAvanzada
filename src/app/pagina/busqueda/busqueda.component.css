@@ -1,0 +1,7 @@
+.img-vertical{
+    overflow: hidden;
+    }
+    .img-vertical img{
+    width: auto;
+    height: 100%;
+    }

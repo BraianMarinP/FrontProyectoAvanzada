@@ -1,0 +1,57 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+  <div class="col" *ngFor="let item of compras">
+      <div class="card shadow-sm">
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="card-body">
+                    <p class="card-text"><strong><em>Informacion de compra</em></strong></p>
+                      <p class="card-text"><strong>Fecha: {{item.fecha}}</strong></p>
+                      <p class="card-text">Codigo de compra: {{item.productos[0].idCompra}}</p>
+
+
+                      <p class="card-text">Medio de pago: {{item.medioPago}}</p>
+                      <p class="card-text">Valor total: {{item.valorTotal}}</p>
+
+                      <div class="col" *ngFor="let producto of item.productos">
+                        <p class="card-text">Producto: {{producto.idPublicacion}}&nbsp;&nbsp;Cantidad: {{producto.cantidad}}</p>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="container">
+    <h1>Mis compras</h1>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="ruta_imagen_producto1.jpg" alt="Producto 1" class="img-thumbnail">
+          </div>
+          <div class="col-sm-6">
+            <h4>Producto x</h4>
+          </div>
+          <div class="col-sm-3">
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="ruta_imagen_producto2.jpg" alt="Producto 2" class="img-thumbnail">
+          </div>
+          <div class="col-sm-6">
+            <h4>Producto x1</h4>
+          </div>
+          <div class="col-sm-3">
+          </div>
+        </div>
+      </li>
+    </ul> -->

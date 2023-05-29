@@ -1,0 +1,125 @@
+
+<form #f="ngForm">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ publicacionProductoDTO.idImagenes[0] }}" alt="Imagen del producto" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+            <h3>{{ publicacionProductoDTO.titulo }}</h3>
+            <p>{{ publicacionProductoDTO.producto.descripcion }}</p>
+            <p>Precio: {{ publicacionProductoDTO.precio }}</p>
+            <p>Cantidad disponible: {{ publicacionProductoDTO.cantidad }}</p>
+            <p>Nombre del producto: {{ publicacionProductoDTO.producto.nombre }}</p>
+            <button type="button" class="btn btn-outline-danger" style="margin-left: 300px;" (click)="agregarFavorito()"
+                style>
+                Agregar a favoritos
+            </button>
+            <p></p>
+            <button class="btn btn-success" (click)="agregarAlCarrito(publicacionProductoDTO)">Añadir al
+                carrito</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container my-5 py-5">
+    <div class="row d-flex justify-content-left">
+
+        <div *ngFor="let comentario of comentarios; index as i" style="margin-left: 20px;">
+
+            <div class="col-md-12 col-lg-10">
+                <div class="card text-dark">
+
+
+                    <div class="rating" *ngIf="comentario.puntuacion >= 1" style="display: inline-block;">
+                        <span class="fa fa-star"></span>
+                        <div class="rating" *ngIf="comentario.puntuacion >= 2" style="display: inline-block;">
+                            <span class="fa fa-star"></span>
+                            <div class="rating" *ngIf="comentario.puntuacion >= 3" style="display: inline-block;">
+                                <span class="fa fa-star"></span>
+                                <div class="rating" *ngIf="comentario.puntuacion >= 4" style="display: inline-block;">
+                                    <span class="fa fa-star"></span>
+                                    <div class="rating" *ngIf="comentario.puntuacion >= 5" style="display: inline-block;">
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-start">
+                            <div>
+                                <p class="mb-0">{{comentario.cedulaUsuario}}</p>
+                                <span>Comenta: {{comentario.descripcion}}</span>
+                            </div>
+                        </div>
+                    </div>
+    
+
+
+
+                </div>
+            </div>
+
+            
+        </div>
+
+
+
+
+    </div>
+</div>
+
+    <div class="container my-5 py-5">
+        <div class="row">
+            <div class="col-md-12 col-lg-10">
+                <div class="card text-dark">
+
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-start">
+                            <div>
+                                <p class="mb-0">Comentar</p>
+                                <div><br></div>
+                                <div class="rating">
+                                    <span class="star" [class]="getStarClass(1)"></span>
+                                    <span class="star" [class]="getStarClass(2)"></span>
+                                    <span class="star" [class]="getStarClass(3)"></span>
+                                    <span class="star" [class]="getStarClass(4)"></span>
+                                    <span class="star" [class]="getStarClass(5)"></span>
+                                </div>
+
+
+
+
+
+                                <div class="d-flex align-items-left mb-3">
+
+
+
+                                    <div><br></div>
+
+                                    <input #cantidad="ngModel" class="form-control" [ngClass]="cantidad.invalid &&
+                                (cantidad.dirty || cantidad.touched) ? 'is-invalid' : ''" type="number" name="cantidad"
+                                        [(ngModel)]="calificacion" required min="1" max="5" pattern="^\d+$" />
+
+
+                                </div>
+                                <textarea class="form-control" rows="3" [(ngModel)]="comentarioTexto" name="area"></textarea>
+                                <button class="btn btn-primary mt-3" (click)="agregarComentario()">Agregar
+                                    comentario</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

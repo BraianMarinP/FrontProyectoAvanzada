@@ -1,0 +1,6 @@
+
+@media (max-width: 768px) {
+    .btn-group {
+      flex-wrap: wrap;
+    }
+  }

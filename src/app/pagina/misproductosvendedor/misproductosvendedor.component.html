@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Mis productos</h1>
+  <div class="col" *ngFor="let item of publicacionProductosDTO">
+    <div class="card shadow-sm">
+      <div class="row">
+        <div class="col-md-6 img-vertical">
+          <img class="rounded-start" src="{{item.idImagenes[0]}}" />
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <p class="card-text">{{item.titulo}}</p>
+            <p class="card-text">{{item.producto.descripcion}}</p>
+            <p class="card-text">$ {{item.precio}}</p>
+            <span class="badge text-bg-primary me-2" *ngFor="let cat of
+                    item.producto.categorias">{{cat.nombre}}</span>
+            <hr />
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button class="btn btn-primary" (click)="editarMiPublicacion(item.idPublicacion)">Editar</button>
+                <button class="btn btn-danger" (click)="eliminarMiPublicacion(item.idPublicacion)">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,74 @@
+<p>micuentausuario works!</p>
+<div class="container py-5">
+    <div class="row">
+
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{moderadorDTO.nombre}}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col-sm-3">
+                <p class="mb-0">Nombre</p>
+              </div>
+
+              <div class="col-sm-9">
+                <input class="form-control" [(ngModel)]="moderadorDTO.nombre" type="text" name="nombre" required value="{{moderadorDTO.nombre}}" />
+              </div>
+
+            </div>
+            <hr>
+            <div class="row">
+
+              <div class="col-sm-3">
+                <p class="mb-0">Correo</p>
+              </div>
+
+              <div class="col-sm-9">
+                <input class="form-control" [(ngModel)]="moderadorDTO.email" type="text" name="email" required value="{{moderadorDTO.email}}" />
+              </div>
+
+            </div>
+            <hr>
+            <div class="row">
+
+              <div class="col-sm-3">
+                <p class="mb-0">Telefono</p>
+              </div>
+              
+              <div class="col-sm-9">
+                <input class="form-control" [(ngModel)]="moderadorDTO.numTel" type="text" name="numTel" required value="{{moderadorDTO.numTel}}" />
+              </div>
+
+            </div>
+            <hr>
+            <div class="row">
+
+              <div class="col-sm-3">
+                <p class="mb-0">Direccion</p>
+              </div>
+
+              <div class="col-sm-9">
+                <input class="form-control" [(ngModel)]="moderadorDTO.direccion" type="text" name="direccion" value="{{moderadorDTO.direccion}}" />
+              </div>
+              
+            </div>
+          </div>
+
+          <a class="btn btn-sm btn-primary" 
+          role="button"
+          >Modificar informacion</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
